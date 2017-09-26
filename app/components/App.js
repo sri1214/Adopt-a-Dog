@@ -1,3 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import fetchRandomPet from '../actions/index.js';
 
-export default () => <div>Adopt a Dog</div>;
+class App extends Component{
+
+  componentDidMount(){
+    this.props.fetchRandomPet();
+  }
+  render(){
+    return <div>Adopt a Dog</div>
+  }
+}
+
+
+export default connect(null, { fetchRandomPet })(App);
