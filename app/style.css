@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 20px;
+  font-family: 'Pangolin', cursive;
+}
+
+.pet-container{
+  border: 1px solid #ddd;
+  padding: 15px;
+  height: 100%;
+}
+
+.pet-image{
+  border-radius: 28px;
+  height: 250px;
+}
+.pet-info{
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.pet-info li{
+  list-style: none;
+  margin: 10px 0;
+}
+
+.pet-description{
+  font-size: 15px;
+}
