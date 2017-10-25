@@ -7,6 +7,23 @@ body{
   font-family: 'Pangolin', cursive;
 }
 
+.search-bar{
+  width: 80%;
+  margin: 15px;
+  align-items:center;
+}
+
+.form-inline{
+  margin-right: -35%;
+}
+.search-bar-input{
+  width: 70% !important;
+}
+
+.button{
+  width: 8%;
+}
+
 .pet-container{
   border: 1px solid #ddd;
   padding: 15px;
@@ -16,6 +33,11 @@ body{
 .pet-image{
   border-radius: 28px;
   height: 250px;
+}
+
+.pet-list-image{
+  width: 300px;
+  height: 200px;
 }
 .pet-info{
   border: 1px solid #ddd;

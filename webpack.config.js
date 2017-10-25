@@ -19,6 +19,9 @@ module.exports = {
       tls: 'empty',
       dns: 'empty'
     },
+    devServer: {
+      historyApiFallback: true
+    },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/index.html'
