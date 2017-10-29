@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchRandomPet} from '../actions/index.js';
+import {isEmpty} from '../util/index.js';
 
 class RandomPet extends Component{
 
@@ -8,14 +9,7 @@ class RandomPet extends Component{
     this.props.fetchRandomPet();
   }
 
-  isEmpty(obj){
-    for (var p in obj) {
-      if (obj.hasOwnProperty(p)) {
-        return false;
-      }
-    }
-    return true;
-  }
+
 
   render(){
     const randomPet = this.props.randomPet;
@@ -50,7 +44,7 @@ class RandomPet extends Component{
       //   </div>
       // </div>
       <div>
-        {this.isEmpty(randomPet)?<p>Please wait while ur pet is loading...</p>:<RandomPetComponent data={randomPet}/>}
+        {isEmpty(randomPet)?<p>Please wait while ur pet is loading...</p>:<RandomPetComponent data={randomPet}/>}
       </div>
 
 

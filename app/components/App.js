@@ -1,23 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SearchBar from './SearchBar.js';
+import {isEmpty} from '../util/index.js';
 
 class App extends Component{
-  isEmpty(obj){
-    for (var p in obj) {
-      if (obj.hasOwnProperty(p)) {
-        return false;
-      }
-    }
-    return true;
-  }
+
 
   render (){
     const petListData = this.props.petListData;
     return (
       <div>
         <SearchBar/>
-        {!this.isEmpty(petListData)&& <PetList petListData={petListData} />}
+        {!isEmpty(petListData)&& <PetList petListData={petListData} />}
       </div>
     )
   }
@@ -57,7 +51,7 @@ function Pet(props){
         <img className = "pet-list-image" src={petData.image} alt={petData.name} ></img>
         <div className="caption">
           <h3>{petData.name}</h3>
-          <p>Male Young Shitzu</p>
+          <p>{petData.sex} {petData.age} {petData.breed}</p>
           <p><a href="#" className="btn btn-primary" role="button">Button</a> <a href="#" className="btn btn-default" role="button">Button</a></p>
         </div>
       </div>
