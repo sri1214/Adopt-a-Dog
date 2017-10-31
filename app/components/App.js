@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import SearchBar from './SearchBar.js';
 import {isEmpty} from '../util/index.js';
@@ -38,13 +39,14 @@ function PetRow(props){
   const startPos = props.startPos;
   return (
     <div className="row">
-    { petListKeys.slice(startPos, startPos+3).map(petId => <Pet key={petId} petData={petList[petId]} />) }
+    { petListKeys.slice(startPos, startPos+3).map(petId => <Pet key={petId} petId={petId} petData={petList[petId]} />) }
     </div>
   )
 }
 
 function Pet(props){
   const petData = props.petData;
+  const petId=props.petId;
   return (
     <div className="col-sm-6 col-md-4">
       <div className="thumbnail">
@@ -52,7 +54,7 @@ function Pet(props){
         <div className="caption">
           <h3>{petData.name}</h3>
           <p>{petData.sex} {petData.age} {petData.breed}</p>
-          <p><a href="#" className="btn btn-primary" role="button">Button</a> <a href="#" className="btn btn-default" role="button">Button</a></p>
+          <p><Link to={{pathname:"/petInfo", search: `?petId=${petId}`}} className="btn btn-primary">More Info</Link></p>
         </div>
       </div>
     </div>
