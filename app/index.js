@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 
 import css from './style.css';
 import App from './components/App.js';
@@ -14,7 +14,7 @@ import reducers from './reducers';
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Switch>
           <Route path="/random" component={RandomPet} />
@@ -23,7 +23,7 @@ ReactDOM.render(
           <Route render={function(){return <p>Page Not Found</p>}} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById('app')
 );
