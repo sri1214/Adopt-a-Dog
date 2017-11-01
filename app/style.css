@@ -8,27 +8,34 @@ body{
 }
 
 .search-bar{
-  width: 80%;
   margin: 15px;
   align-items:center;
 }
 
-.form-inline{
-  margin-right: -35%;
-}
 .search-bar-input{
-  width: 70% !important;
+  float: left;
+  width: 70%;
 }
 
 .button{
-  width: 8%;
+  width: 15%;
+
 }
+
+@media screen and (min-width: 700px) {
+  .button{
+    width: 7%;
+
+  }
+}
+
 
 .pet-container{
   border: 1px solid #ddd;
   padding: 15px;
   height: 100%;
 }
+
 
 .pet-image{
   border-radius: 28px;
@@ -58,6 +65,6 @@ body{
 .header{
   font-size: 16px;
   margin-bottom: 30px;
-  margin-left: -50px;
+  margin-left: -8%;
 
 }
