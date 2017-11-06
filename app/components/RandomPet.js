@@ -59,7 +59,7 @@ function RandomPetComponent(props){
     <div className='col-md-9 col-xs-12 pet-container' >
       <div className='row'>
         <div className='col-sm-6'>
-          <img className='img-responsive pet-image col-sm-12' src={randomPet.image}></img>
+          <img className='img-responsive pet-image col-sm-12' src={randomPet.images[0]}></img>
         </div>
         <div className='col-sm-5 pet-info'>
           <h3>{randomPet.name} Info</h3>

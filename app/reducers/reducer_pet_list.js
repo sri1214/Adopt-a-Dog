@@ -12,14 +12,14 @@ export default (state={}, action) => {
                                  'breed': !pet.breeds.breed.$t?pet.breeds.breed.reduce((final, temp) => final.$t + ' ' + temp.$t):pet.breeds.breed.$t,
                                  'age': pet.age.$t,
                                  'size': getSize(pet.size.$t),
-                                 'image': pet.media.photos.photo.filter( photo => photo['@size'] === 'x')[0].$t,
+                                 'images': pet.media.photos.photo.filter( photo => photo['@size'] === 'x').map(photo => photo.$t),
                                  'shelterId': pet.shelterId.$t,
                                  'location': pet.contact.city.$t+', '+pet.contact.state.$t,
                                  'description': pet.description.$t,
                               };
-        //console.log(newState);
         return newState;
       });
+      //console.log(newState);
       return newState;
     default:
     return state;

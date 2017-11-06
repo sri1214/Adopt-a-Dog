@@ -11,6 +11,12 @@ class App extends Component{
     const petListData = this.props.petListData;
     return (
       <div>
+        {isEmpty(petListData) &&
+          <div className="jumbotron">
+            <h1>Adopt-a-Dog</h1>
+            <h3>Please enter your location to look for the dogs that are available for adoption</h3>
+          </div>
+        }
         <SearchBar/>
         {!isEmpty(petListData)&& <PetList petListData={petListData} />}
       </div>
@@ -50,7 +56,7 @@ function Pet(props){
   return (
     <div className="col-sm-6 col-md-4">
       <div className="thumbnail">
-        <img className = "pet-list-image" src={petData.image} alt={petData.name} ></img>
+        <img className = "pet-list-image" src={petData.images[0]} alt={petData.name} ></img>
         <div className="caption">
           <h3>{petData.name}</h3>
           <p>{petData.sex} {petData.age} {petData.breed}</p>
