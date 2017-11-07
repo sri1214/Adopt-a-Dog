@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import queryString from 'query-string';
 import {isEmpty} from '../util/index.js';
 import Slider from 'react-slick';
+import {fetchPet} from '../actions/index.js';
 
 class PetInfo extends Component{
   constructor(props){
@@ -13,14 +14,23 @@ class PetInfo extends Component{
 
   componentDidMount(){
     var petId = queryString.parse(this.props.location.search).petId;
+    this.setState({petId});
     const petListData = this.props.petListData;
     var petInfo = {};
     if(!isEmpty(petListData)&&!isEmpty(petListData[petId])){
       petInfo = petListData[petId];
     }
-    this.setState({petId, petInfo});
+    isEmpty(petInfo)?this.props.fetchPet(petId):this.setState({petInfo});
   }
+
+  componentWillReceiveProps(nextProps){
+    const petId = this.state.petId;
+    const petInfo = nextProps.petData[petId];
+    this.setState({petInfo});
+  }
+
   render(){
+
     // <RandomPetComponentMockUp/>
     return (
       <div>
@@ -140,8 +150,9 @@ function RandomPetComponentMockUp(){
 
 function mapStateToProps(state){
   return {
-    petListData: state.PetListData
+    petListData: state.PetListData,
+    petData: state.PetData
   }
 }
 
-export default connect(mapStateToProps)(PetInfo);
+export default connect(mapStateToProps, {fetchPet})(PetInfo);

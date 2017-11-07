@@ -25,3 +25,13 @@ export function fetchPetList(zipCode){
     payload: request
   }
 }
+
+export function fetchPet(petId){
+  const URL = `https://api.petfinder.com/pet.get?format=json&key=${API_KEY}&id=${petId}&output=basic`;
+  const request = fetchJsonp(URL).then(response => response.json());
+  console.log("action creater ", request);
+  return {
+    type: 'PET',
+    payload: request
+  }
+}
