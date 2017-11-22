@@ -22,7 +22,7 @@ class SearchBar extends Component{
   render(){
     return (
       <form className="search-bar" onSubmit={this.onFormSubmit}>
-        <input type="text" className="form-control search-bar-input" placeholder="location" value={this.state.searchValue} onChange={this.onInputChange}/>
+        <input type="text" className="form-control search-bar-input" placeholder="Enter a valid U.S. city or zip code" value={this.state.searchValue} onChange={this.onInputChange}/>
         <button type="submit" className="btn btn-default button"  aria-label="Left Align">
           <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
         </button>
