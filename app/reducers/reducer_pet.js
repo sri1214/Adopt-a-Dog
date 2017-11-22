@@ -4,7 +4,7 @@ export default (state={}, action) => {
   switch(action.type){
     case 'PET':
       const pet = action.payload.petfinder.pet;
-      //console.log(pet);
+      console.log(pet);
       const newPetState = {};
       newPetState[pet.id.$t] = {  'name': pet.name.$t,
                                  'sex': getGender(pet.sex.$t),
